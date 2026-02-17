@@ -1,0 +1,16 @@
+<!-- <div class="grid" role="grid" aria-label="10 by 10 game grid">
+    <button *ngFor="let cell of grid; trackBy: trackById" type="button" class="cell" [ngClass]="cell.color"
+        (click)="onCellClick(cell.id)" [attr.aria-label]="'Cell ' + cell.id + ' ' + cell.color"></button>
+</div> -->
+
+<div class="grid" role="grid" aria-label="10 by 10 game grid">
+  @for (cell of grid; track cell.id) {
+    <button
+      type="button"
+      class="cell"
+      [ngClass]="cell.color"
+      (click)="onCellClick(cell.id)"
+      [attr.aria-label]="'Cell ' + cell.id + ' ' + cell.color"
+    ></button>
+  }
+</div>

@@ -1,0 +1,59 @@
+<!-- <ng-container *ngIf="vm$ | async as vm">
+    <div class="overlay" *ngIf="vm.countdown as c">
+        {{ c }}
+    </div>
+    <mat-card>
+        <mat-card-content class="top">
+            <app-game-controls [vm]="vm"></app-game-controls>
+            <app-game-score [vm]="vm"></app-game-score>
+        </mat-card-content>
+    </mat-card>
+
+    <app-game-grid [grid]="vm.grid" (cellClick)="gameService.handleCellClick($event)"></app-game-grid>
+</ng-container> -->
+
+<!-- @if (vm$ | async; as vm) {
+
+  @if (vm.countdown as c) {
+    <div class="overlay">
+      {{ c }}
+    </div>
+  }
+
+  <mat-card>
+    <mat-card-content class="top">
+      <app-game-controls [vm]="vm"></app-game-controls>
+      <app-game-score [vm]="vm"></app-game-score>
+    </mat-card-content>
+  </mat-card>
+
+  <app-game-grid
+    [grid]="vm.grid"
+    (cellClick)="gameService.handleCellClick($event)"
+  ></app-game-grid>
+
+} -->
+
+@if (vm$ | async; as vm) {
+  @if (vm.countdown) {
+    <div class="overlay">
+      {{ vm.countdown }}
+    </div>
+  }
+
+  <mat-card>
+    <mat-card-content class="top">
+      <app-game-controls [vm]="vm"></app-game-controls>
+      <app-game-score [vm]="vm"></app-game-score>
+    </mat-card-content>
+  </mat-card>
+
+  @defer (when vm.status !== 'idle') {
+    <app-game-grid
+      [grid]="vm.grid"
+      (cellClick)="gameService.handleCellClick($event)"
+    ></app-game-grid>
+  } @placeholder {
+    <div class="grid-placeholder">Press Start to begin</div>
+  }
+}

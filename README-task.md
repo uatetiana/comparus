@@ -12,12 +12,14 @@ Create an interactive mini-game with the following requirements.
 ## Game Rules
 
 ### 1) Start Action
+
 When the player clicks **Start**:
 
 - A **random blue cell** turns **yellow** (highlighted).
 - The player has **N milliseconds** to click the highlighted cell.
 
 ### 2) Scoring
+
 - **If the player clicks the yellow cell within N ms:**
   - The cell turns **green permanently**.
   - **Player +1 point**.
@@ -27,6 +29,7 @@ When the player clicks **Start**:
   - **Computer +1 point**.
 
 ### 3) Game End
+
 - The **first to reach 10 points wins**.
 - Show a **custom modal window** with the game results.
 - The game **stops** (no more highlights).

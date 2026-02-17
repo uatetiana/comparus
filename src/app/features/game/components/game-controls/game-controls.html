@@ -1,0 +1,44 @@
+<div class="controls">
+  <mat-form-field appearance="outline" class="n-field">
+    <mat-label>N (ms)</mat-label>
+    <input
+      matInput
+      type="number"
+      inputmode="numeric"
+      [formControl]="nControl"
+      placeholder="1000"
+      min="100"
+      max="5000"
+    />
+    <mat-hint>100–5000 ms</mat-hint>
+
+    @if (nControl.hasError('required')) {
+      <mat-error>N is required</mat-error>
+    }
+
+    @if (nControl.hasError('min')) {
+      <mat-error>Min is 100 ms</mat-error>
+    }
+
+    @if (nControl.hasError('max')) {
+      <mat-error>Max is 5000 ms</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="buttons">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onStart()"
+      [disabled]="isRunning || nControl.invalid"
+    >
+      Start
+    </button>
+
+    <button mat-button (click)="onRestart()" [disabled]="nControl.invalid">Restart</button>
+
+    @if (vm.status === 'running') {
+      <button mat-stroked-button color="warn" (click)="onReset()">Reset</button>
+    }
+  </div>
+</div>

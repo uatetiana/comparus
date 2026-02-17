@@ -1,0 +1,23 @@
+<!-- <div class="score">
+    <mat-chip-set aria-label="Score">
+        <mat-chip>Player: {{ vm.playerScore }}</mat-chip>
+        <mat-chip>Computer: {{ vm.computerScore }}</mat-chip>
+    </mat-chip-set>
+    
+
+
+    <span class="status" *ngIf="vm.status !== 'idle'">
+        Status: {{ vm.status }}
+    </span>
+</div> -->
+
+<div class="score">
+  <mat-chip-set aria-label="Score">
+    <mat-chip>Player: {{ vm.playerScore }}</mat-chip>
+    <mat-chip>Computer: {{ vm.computerScore }}</mat-chip>
+  </mat-chip-set>
+
+  @if (vm.status !== 'idle') {
+    <span class="status"> Status: {{ vm.status }} </span>
+  }
+</div>

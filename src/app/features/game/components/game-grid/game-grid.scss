@@ -1,0 +1,48 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  width: min(92vw, 520px);
+  margin: 16px auto;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 120ms ease,
+    filter 120ms ease;
+}
+
+.cell:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.cell:active {
+  transform: translateY(0px);
+}
+
+.cell:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 2px;
+}
+
+.cell.blue {
+  background: #1976d2;
+}
+
+.cell.yellow {
+  background: #fbc02d;
+}
+
+.cell.green {
+  background: #2e7d32;
+}
+
+.cell.red {
+  background: #c62828;
+}
