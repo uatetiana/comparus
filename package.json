@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "prod": "ng build --configuration production",
     "test": "ng test",
+    "deploy": "ng build --configuration production --base-href /repo-name/ && npx angular-cli-ghpages --dir=dist/mini-game/browser",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "ng lint"
@@ -44,6 +46,7 @@
     "@angular/build": "^21.1.4",
     "@angular/cli": "^21.1.4",
     "@angular/compiler-cli": "^21.1.0",
+    "angular-cli-ghpages": "^3.0.2",
     "angular-eslint": "21.2.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
